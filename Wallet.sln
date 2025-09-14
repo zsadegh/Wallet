@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Core\Application\Application.csproj", "{A0B6BEC0-8501-4218-BF27-79E8A237ADC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{E5333853-08E6-4E44-968C-C032CF536763}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{AF3EBAF2-C41B-496D-8ECA-2FE7D4E4941F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "UI\Api\Api.csproj", "{37787A25-5B3F-47BE-9EDD-442F8B0BAC79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\..\SideApi\IranKish.SideApi\Core\Domain\Domain.csproj", "{FF86FB14-6B4C-85CA-F896-A98ABA4FAE6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletContext", "Infrastructure\WalletContext\WalletContext.csproj", "{555E02E2-EA34-42D6-9668-F08B62C66004}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0B6BEC0-8501-4218-BF27-79E8A237ADC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0B6BEC0-8501-4218-BF27-79E8A237ADC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0B6BEC0-8501-4218-BF27-79E8A237ADC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0B6BEC0-8501-4218-BF27-79E8A237ADC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37787A25-5B3F-47BE-9EDD-442F8B0BAC79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37787A25-5B3F-47BE-9EDD-442F8B0BAC79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37787A25-5B3F-47BE-9EDD-442F8B0BAC79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37787A25-5B3F-47BE-9EDD-442F8B0BAC79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF86FB14-6B4C-85CA-F896-A98ABA4FAE6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF86FB14-6B4C-85CA-F896-A98ABA4FAE6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF86FB14-6B4C-85CA-F896-A98ABA4FAE6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF86FB14-6B4C-85CA-F896-A98ABA4FAE6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{555E02E2-EA34-42D6-9668-F08B62C66004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555E02E2-EA34-42D6-9668-F08B62C66004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555E02E2-EA34-42D6-9668-F08B62C66004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{555E02E2-EA34-42D6-9668-F08B62C66004}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A0B6BEC0-8501-4218-BF27-79E8A237ADC2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{37787A25-5B3F-47BE-9EDD-442F8B0BAC79} = {E5333853-08E6-4E44-968C-C032CF536763}
+		{FF86FB14-6B4C-85CA-F896-A98ABA4FAE6A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{555E02E2-EA34-42D6-9668-F08B62C66004} = {AF3EBAF2-C41B-496D-8ECA-2FE7D4E4941F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71AFE818-92EF-4EE0-BEDF-62CAB28231F7}
+	EndGlobalSection
+EndGlobal
