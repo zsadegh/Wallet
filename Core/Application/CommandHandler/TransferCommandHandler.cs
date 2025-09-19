@@ -10,21 +10,21 @@ using System.Threading.Tasks;
 
 namespace Application.CommandHandler
 {
-    public class WithdrawCommandHandler : IRequestHandler<WithdrawCommand>
+    public class TransferCommandHandler : IRequestHandler<TransferCommand>
     {
         private readonly IWalletRepository _repository;
 
-        public WithdrawCommandHandler(IWalletRepository repository)
+        public TransferCommandHandler(IWalletRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(WithdrawCommand request, CancellationToken cancellationToken)
+        public async Task Handle(TransferCommand request, CancellationToken cancellationToken)
         {
-            var wallet = await _repository.GetByIdAsync(request.WalletId);
-            if (wallet == null) throw new Exception("Wallet not found");
+            var wallet = await _repository.GetByIdAsync(request.TargetWalletId);
+            if (wallet==null) throw new Exception("Wallet not found");
 
-            wallet.Withdraw(new Money(request.Amount));
+            wallet.Transfer(wallet, new Money(request.Amount));
             await _repository.SaveAsync(wallet);
         }
     }

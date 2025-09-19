@@ -34,5 +34,22 @@ namespace Domain.Entity
             Balance = Balance.Subtract(money);
             _transactions.Add(new Transaction(Guid.NewGuid(), money, TransactionType.Withdraw));
         }
+        public void Transfer(Wallet targetWallet, Money money)
+        {
+            if (targetWallet == null)
+                throw new ArgumentNullException(nameof(targetWallet));
+
+            if(money.Currency!=Balance.Currency)
+                throw new ArgumentException("Transfer currency mismatch");
+
+            if (money.Amount <= 0)
+                throw new ArgumentException("Transfer amount must be positive.");
+
+            if (money.Amount > Balance.Amount)
+                throw new InvalidOperationException("Insufficient funds for transfer.");
+
+            this.Withdraw(money);
+            targetWallet.Deposit(money);
+        }
     }
 }

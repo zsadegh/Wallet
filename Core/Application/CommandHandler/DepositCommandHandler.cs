@@ -1,6 +1,6 @@
 ﻿using Application.Command;
 using Application.Interface.Repository;
-using Domain.ValueObjec;
+using Domain.ValueObject;
 using MediatR;
 using System;
 using System.Collections.Generic;
