@@ -39,7 +39,7 @@ namespace Api.Controllers
         }
 
         [HttpPost("transfer")]
-        public async Task<IActionResult> transfer([FromBody] TransferWalletRequest request)
+        public async Task<IActionResult> Transfer([FromBody] TransferWalletRequest request)
         {
             await _mediator.Send(new TransferCommand(request.TargetWalletId,request.id, request.amount));
             return Ok();
