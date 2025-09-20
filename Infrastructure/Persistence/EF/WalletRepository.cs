@@ -21,9 +21,14 @@ namespace Persistence.EF
             return await _db.GetByIdAsync(id);
         }
 
-        public async Task SaveAsync(Wallet wallet)
+        public async Task SaveTransactionAsync(Transaction transaction)
         {
-            await _db.SaveAsync(wallet);
+            await _db.SaveTransactionAsync(transaction);
+        }
+
+        public async Task SaveWalletAsync(Wallet wallet)
+        {
+            await _db.SaveWalletAsync(wallet);
         }
     }
 }

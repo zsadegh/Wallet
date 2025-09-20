@@ -28,8 +28,15 @@ namespace Persistence.DB
             return result == null ? 0 : result.Balance.Amount;
         }
 
-        public async Task<Wallet> GetByIdAsync(Guid id) => await Wallet.FindAsync(id);
-        public async Task SaveAsync(Wallet wallet)
+        public async Task<Wallet> GetByIdAsync(Guid id) => await Wallet.FindAsync(id);       
+
+        public async Task SaveTransactionAsync(Transaction transaction)
+        {
+            Transactions.Add(transaction);
+            await SaveChangesAsync();
+        }
+
+        public async Task SaveWalletAsync(Wallet wallet)
         {
             Wallet.Add(wallet);
             await SaveChangesAsync();
