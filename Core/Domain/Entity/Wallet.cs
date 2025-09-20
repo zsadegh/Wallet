@@ -12,9 +12,6 @@ namespace Domain.Entity
     {
         public Guid Id { get; private set; }
         public Money Balance { get; private set; }
-        private readonly List<Transaction> _transactions = new();
-        public IReadOnlyCollection<Transaction> Transactions => _transactions.AsReadOnly();
-
         private Wallet() { }
 
         public Wallet(Guid id)
@@ -25,14 +22,12 @@ namespace Domain.Entity
 
         public void Deposit(Money money)
         {
-            Balance = Balance.Add(money);
-            _transactions.Add(new Transaction(Guid.NewGuid(), money, TransactionType.Deposit));
+            Balance = Balance.Add(money);           
         }
 
         public void Withdraw(Money money)
         {
-            Balance = Balance.Subtract(money);
-            _transactions.Add(new Transaction(Guid.NewGuid(), money, TransactionType.Withdraw));
+            Balance = Balance.Subtract(money);            
         }
         public void Transfer(Wallet targetWallet, Money money)
         {

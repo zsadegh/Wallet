@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 
 namespace Application.Command
 {
-    public record TransferCommand(Guid TargetWalletId, decimal Amount) : IRequest;
+    public record TransferCommand(Guid TargetWalletId,Guid CurrentWalletId, decimal Amount) : IRequest;
 }

@@ -1,5 +1,7 @@
 ﻿using Application.Command;
 using Application.Interface.Repository;
+using Domain.Common;
+using Domain.Entity;
 using Domain.ValueObject;
 using MediatR;
 using System;
@@ -21,11 +23,12 @@ namespace Application.CommandHandler
 
         public async Task Handle(TransferCommand request, CancellationToken cancellationToken)
         {
-            var wallet = await _repository.GetByIdAsync(request.TargetWalletId);
-            if (wallet==null) throw new Exception("Wallet not found");
+            var targetWallet = await _repository.GetByIdAsync(request.TargetWalletId);
+            var currentWallet = await _repository.GetByIdAsync(request.CurrentWalletId);
+            if (targetWallet == null || currentWallet==null) throw new Exception("Wallet not found");
 
-            wallet.Transfer(wallet, new Money(request.Amount));
-            await _repository.SaveAsync(wallet);
+            currentWallet.Transfer(targetWallet, new Money(request.Amount));
+            await _repository.SaveTransactionAsync(new Transaction(Guid.NewGuid(), currentWallet.Balance, TransactionType.Transfer));
         }
     }
 }

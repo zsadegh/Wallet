@@ -1,5 +1,7 @@
 ﻿using Application.Command;
 using Application.Interface.Repository;
+using Domain.Common;
+using Domain.Entity;
 using Domain.ValueObject;
 using MediatR;
 using System;
@@ -7,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Application.CommandHandler
 {
@@ -25,7 +28,8 @@ namespace Application.CommandHandler
             if (wallet==null) throw new Exception("Wallet not found");
 
             wallet.Deposit(new Money(request.Amount));
-            await _repository.SaveAsync(wallet);
+            await _repository.SaveWalletAsync(wallet);
+            await _repository.SaveTransactionAsync(new Transaction(Guid.NewGuid(),wallet.Balance, TransactionType.Deposit));
         }
     }
 }

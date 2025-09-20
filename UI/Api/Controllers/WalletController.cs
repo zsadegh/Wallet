@@ -37,5 +37,12 @@ namespace Api.Controllers
             var balance = await _mediator.Send(new GetWalletBalanceQuery(id));
             return Ok(balance);
         }
+
+        [HttpPost("transfer")]
+        public async Task<IActionResult> transfer([FromBody] TransferWalletRequest request)
+        {
+            await _mediator.Send(new TransferCommand(request.TargetWalletId,request.id, request.amount));
+            return Ok();
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace Application.Interface.Repository
     public interface IWalletRepository
     {
         Task<Wallet> GetByIdAsync(Guid id);
-        Task SaveAsync(Wallet wallet);
+        Task SaveWalletAsync(Wallet wallet);
+        Task SaveTransactionAsync(Transaction transaction);
     }
 }
